@@ -12,6 +12,8 @@ app.use(require('webpack-dev-middleware')(compiler,{
   publicPath:webpackConfig.output.publicPath
 }));
 
+app.use(require('webpack-hot-middleware')(compiler));
+
 compiler.plugin('compile',function(){
   console.log('Bundling ...');
 });
