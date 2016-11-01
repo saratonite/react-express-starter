@@ -1,5 +1,6 @@
 
-import {createStore} from 'redux';
+import {createStore,combineReducers} from 'redux';
+import {routerReducer } from 'react-router-redux'
 const defaultState = {
 	todo:{
 		items:[{task:'Goto store',completed:false}]
@@ -8,12 +9,15 @@ const defaultState = {
 
 /* Todo reducer */
 
-function todo(state,action){
+function todoReducer(state=[],action){
+	console.info('Todo Reducer');
+	console.log(state);
 
 	switch(action.type){
 		case 'ADD_TODO' : 
+			console.log('Payload',action.payload);
 			var newState = Object.assign({},state);
-			newState.todo.items.push({task:'Go to Store',completed:false});
+			newState.items.push(action.payload);
 			return newState;
 		default:
 		return state;
@@ -21,8 +25,9 @@ function todo(state,action){
 
 }
 
+var rootReducer = combineReducers({todo:todoReducer,routing: routerReducer});
 
 
 /* Create Store */
 
-export default createStore(todo,defaultState);
+export default createStore(rootReducer,defaultState);
