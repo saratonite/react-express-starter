@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+/* Import Actions */
+import {addTodo} from './../../actions/TodoActions';
+
 class Todos extends React.Component {
 	constructor(props) {
 		super(props);
@@ -57,8 +60,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
 	return {
-		addTodo:function(task){
-			dispatch({type:'ADD_TODO',payload:task});
+		addTodo:function(todo){
+			dispatch(addTodo(todo));
 		}
 	}
 }
