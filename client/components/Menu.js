@@ -6,8 +6,8 @@ export default class Menu extends React.Component {
 		return(
 			<nav>
 				<ul >
-					<li><Link to={'/'}>Home</Link></li>
-					<li><Link to={'/todos'}>Todos</Link></li>
+					<li><Link to={'/'} >Home</Link></li>
+					<li><Link to={'/todos'} >Todos</Link></li>
 				</ul>
 			</nav>
 		);
