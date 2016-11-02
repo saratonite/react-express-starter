@@ -34,6 +34,9 @@ class Todos extends React.Component {
 		}
 		
 	}
+	removeTodo(todo){
+		this.props.removeTodo();
+	}
 	render(){
 		return(
 			<div>
@@ -60,7 +63,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
 	return {
-		addTodo:function(todo){
+		addTodo(todo){
 			dispatch(addTodo(todo));
 		}
 	}
