@@ -6,10 +6,7 @@ import store from './store';
 import App from './components/App';
 import Home from './components/containers/Home';
 import Todos from './components/containers/Todos';
-window.store = store;
-store.subscribe(function(){
-	console.log(store.getState());
-});
+
 export default function(){
 	return (
 		<Provider store={store}>

@@ -8,7 +8,7 @@ class Todos extends React.Component {
 		
 	}
 	componentDidMount() {
-		console.log(this.props);
+	
 	}
 	renderTodos(){
 		return this.props.todo.items.map((todo,index)=>{
