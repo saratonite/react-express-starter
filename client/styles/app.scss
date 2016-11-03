@@ -3,3 +3,17 @@ $primaryBgColor:rgba(86, 176, 122, 0.38);
 body{
 	background-color:$primaryBgColor;
 }
+
+.todo-list{
+	margin:5px;
+	background-color:#ccc;
+	padding: 3px;
+	.todo-item{
+		padding: 5px;
+		background-color:#eee;
+		border-bottom: 1px solid #dedede;
+		margin-top:2px;
+		min-height: 2em;
+		border-radius: 3px;
+	}
+}

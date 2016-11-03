@@ -3,7 +3,7 @@ import {createStore,combineReducers} from 'redux';
 import {routerReducer } from 'react-router-redux'
 const defaultState = {
 	todo:{
-		items:[{task:'Goto store',completed:false}]
+		items:[]
 	}
 }
 

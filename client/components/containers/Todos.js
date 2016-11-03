@@ -1,6 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+/* Import Components */
+
+import TodoItem from './../todo/TodoItem';
+import TodoList from './../todo/TodoList';
+
+
 /* Import Actions */
 import {addTodo} from './../../actions/TodoActions';
 
@@ -12,11 +18,6 @@ class Todos extends React.Component {
 	}
 	componentDidMount() {
 	
-	}
-	renderTodos(){
-		return this.props.todo.items.map((todo,index)=>{
-			return <li key={index}>{todo.task}</li>;
-		});
 	}
 	onNewTaskChange(e){
 
@@ -40,14 +41,12 @@ class Todos extends React.Component {
 	render(){
 		return(
 			<div>
-				<h1>Todos Page</h1>
-				<ul>
-				{this.renderTodos()}
-				</ul>
 				<div>
 				<input type="text" onChange={this.onNewTaskChange.bind(this)} value={this.state.newTask}/>
 					<button onClick={this.addTodo.bind(this)}>Add</button>
 				</div>
+				<TodoList todos={this.props.todo.items}></TodoList>
+			
 			</div>
 		);
 	}
