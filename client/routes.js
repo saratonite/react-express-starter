@@ -6,6 +6,7 @@ import store from './store';
 import App from './components/App';
 import Home from './components/containers/Home';
 import Todos from './components/containers/Todos';
+import NotFound from './components/NotFound';
 
 export default function(){
 	return (
@@ -14,6 +15,7 @@ export default function(){
 			<Route path='/' component={App}>
 				<IndexRoute component={Home}></IndexRoute>
 				<Route path='/todos' component={Todos}></Route>
+				<Route path='*' component={NotFound} ></Route>
 			</Route>
 		</Router>
 		</Provider>
