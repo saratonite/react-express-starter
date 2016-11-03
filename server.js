@@ -3,11 +3,10 @@ var express = require('express');
 
 var app = express();
 
-var isDeveloping = false;
+var isDeveloping = true;
 if(process.argv.length >2){
 	 isDeveloping = process.argv[2] !== 'production';
 }
-
 
 if(isDeveloping){
 
@@ -36,6 +35,7 @@ if(isDeveloping){
 
 /**/
 app.use('/static',express.static('./static'));
+
 app.get('*',function(req,res){
 
   res.sendFile(__dirname+'/index.html');
