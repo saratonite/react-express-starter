@@ -1,6 +1,10 @@
-
+require("babel-register");
 var express = require('express');
+var ReactDOMServer = require('react-dom/server');
+var ReactRouter = require('react-router');
 
+
+console.log(ReactDOMServer);
 var app = express();
 
 var isDeveloping = true;
@@ -35,6 +39,19 @@ if(isDeveloping){
 
 /**/
 app.use('/static',express.static('./static'));
+
+app.get('/ssr',function(req,res){
+
+	var appRouter = require('./client/routes')();
+	console.log(appRouter);
+
+	// const Xroutes = ReactRouter.createRoutes(appRouter);
+
+	// ReactDOMServer.renderToString(Xroutes);
+
+ res.send('Hello');
+
+});
 
 app.get('*',function(req,res){
 

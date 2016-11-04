@@ -8,7 +8,7 @@ import Home from './components/containers/Home';
 import Todos from './components/containers/Todos';
 import NotFound from './components/NotFound';
 
-export default function(){
+ const routes = () => {
 	return (
 		<Provider store={store}>
 		<Router history={browserHistory}>
@@ -21,3 +21,5 @@ export default function(){
 		</Provider>
 		);
 }
+
+export default routes;
