@@ -1,5 +1,8 @@
-require("babel-register");
+require("babel-register")({
+	presets:['react','es2015']
+});
 var express = require('express');
+var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 var ReactRouter = require('react-router');
 
@@ -42,14 +45,14 @@ app.use('/static',express.static('./static'));
 
 app.get('/ssr',function(req,res){
 
-	var appRouter = require('./client/routes')();
+	var appRouter = require('./client/routes').default;
 	console.log(appRouter);
 
-	// const Xroutes = ReactRouter.createRoutes(appRouter);
+	//const Xroutes = ReactRouter.createRoutes(appRouter);
 
-	// ReactDOMServer.renderToString(Xroutes);
+	var html = ReactDOMServer.renderToString(React.createElement(appRouter));
 
- res.send('Hello');
+ res.send(html);
 
 });
 
