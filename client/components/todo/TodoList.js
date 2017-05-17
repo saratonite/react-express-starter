@@ -21,7 +21,7 @@ export default class TodoList extends React.Component {
 
 		return(
 			<div className="todo-list">
-				<h2>Todo List</h2>
+				<h2>Todo Lists </h2>
 				{this.renderTodos()}
 			</div>
 		);

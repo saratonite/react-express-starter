@@ -20,7 +20,11 @@ if(isDeveloping){
 	  publicPath:webpackConfig.output.publicPath
 	}));
 
-	app.use(require('webpack-hot-middleware')(compiler));
+	app.use(require('webpack-hot-middleware')(compiler,{
+		  log: false,
+    path: "/__what",
+    heartbeat: 2000
+	}));
 
 	compiler.plugin('compile',function(){
 	  console.log('Bundling ...');

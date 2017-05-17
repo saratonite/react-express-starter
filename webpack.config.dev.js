@@ -19,7 +19,7 @@ module.exports = {
       // Javascript
       {
         test: /\.js$/,
-        loaders: ['babel?presets[]=es2015&presets[]=react'],
+        loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
         include: path.join(__dirname,'client')
       },
       // Css loader
