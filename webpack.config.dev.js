@@ -3,23 +3,21 @@ var path = require('path');
 
 
 module.exports = {
-  entry:[
-    './client/main'
-  ],
+  entry:{
+        main:['react-hot-loader/patch','webpack-hot-middleware/client?path=/__what','./client/main']
+    
+  },
   output: {
     path: path.join(__dirname,'static'),
     filename: 'bundle.js',
     publicPath:'/static/'
   },
-  plugins: [
-
-  ],
   module: {
     loaders: [
       // Javascript
       {
         test: /\.js$/,
-        loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
+        loaders: ['react-hot-loader/webpack','babel-loader?presets[]=es2015&presets[]=react'],
         include: path.join(__dirname,'client')
       },
       // Css loader
@@ -35,5 +33,10 @@ module.exports = {
         include:path.join(__dirname,'client')
       }
     ]
-  }
+  },
+    plugins: [
+      new webpack.optimize.OccurenceOrderPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin()
+  ]
 }
